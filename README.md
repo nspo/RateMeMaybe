@@ -105,6 +105,14 @@ Methods:
 	 * @param listener
 	 */
 	public void setAdditionalListener(OnRMMUserChoiceListener listener)
+	
+	/**
+	 * Standard is false. Whether the run method is executed even if no Play
+	 * Store is installed on device.
+	 * 
+	 * @param runWithoutPlayStore
+	 */
+	public void setRunWithoutPlayStore(Boolean runWithoutPlayStore)
 
 	/**
 	 * Reset the launch logs
