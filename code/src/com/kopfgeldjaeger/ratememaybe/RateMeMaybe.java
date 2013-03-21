@@ -35,13 +35,17 @@ public class RateMeMaybe implements RMMFragInterface {
 	private int mMinDaysUntilNextPrompt = 0;
 
 	private Boolean mHandleCancelAsNeutral = true;
-	
+
+	private Boolean mRunWithoutPlayStore = false;
+
 	public interface OnRMMUserChoiceListener {
 		void handlePositive();
+
 		void handleNeutral();
+
 		void handleNegative();
 	}
-	
+
 	private OnRMMUserChoiceListener mListener;
 
 	public RateMeMaybe(FragmentActivity activity) {
@@ -51,6 +55,7 @@ public class RateMeMaybe implements RMMFragInterface {
 
 	/**
 	 * Sets the title of the dialog shown to the user
+	 * 
 	 * @param dialogTitle
 	 */
 	public void setDialogTitle(String dialogTitle) {
@@ -185,15 +190,25 @@ public class RateMeMaybe implements RMMFragInterface {
 	public void setHandleCancelAsNeutral(Boolean handleCancelAsNeutral) {
 		this.mHandleCancelAsNeutral = handleCancelAsNeutral;
 	}
-	
+
 	/**
 	 * Sets an additional callback for when the user has made a choice.
+	 * 
 	 * @param listener
 	 */
 	public void setAdditionalListener(OnRMMUserChoiceListener listener) {
 		mListener = listener;
 	}
-	
+
+	/**
+	 * Standard is false. Whether the run method is executed even if no Play
+	 * Store is installed on device.
+	 * 
+	 * @param runWithoutPlayStore
+	 */
+	public void setRunWithoutPlayStore(Boolean runWithoutPlayStore) {
+		mRunWithoutPlayStore = runWithoutPlayStore;
+	}
 
 	/**
 	 * Reset the launch logs
@@ -237,8 +252,10 @@ public class RateMeMaybe implements RMMFragInterface {
 		}
 
 		if (!isPlayStoreInstalled()) {
-			Log.d(TAG, "No Play Store installed on device. Aborting.");
-			// return;
+			Log.d(TAG, "No Play Store installed on device.");
+			if (!mRunWithoutPlayStore) {
+				return;
+			}
 		}
 
 		Editor editor = mPreferences.edit();
@@ -295,13 +312,13 @@ public class RateMeMaybe implements RMMFragInterface {
 		Editor editor = mPreferences.edit();
 		editor.putBoolean(PREF.DONT_SHOW_AGAIN, true);
 		editor.commit();
-		if(mListener != null) {
+		if (mListener != null) {
 			mListener.handleNegative();
 		}
 	}
 
 	public void _handleNeutralChoice() {
-		if(mListener != null) {
+		if (mListener != null) {
 			mListener.handleNeutral();
 		}
 	}
@@ -320,8 +337,8 @@ public class RateMeMaybe implements RMMFragInterface {
 			Toast.makeText(mActivity, "Could not launch Play Store!",
 					Toast.LENGTH_SHORT).show();
 		}
-		
-		if(mListener != null) {
+
+		if (mListener != null) {
 			mListener.handlePositive();
 		}
 

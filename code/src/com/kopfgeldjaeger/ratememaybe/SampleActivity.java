@@ -17,7 +17,11 @@ public class SampleActivity extends SherlockFragmentActivity implements OnRMMUse
 		
 		RateMeMaybe rmm = new RateMeMaybe(this);
 		rmm.setPromptMinimums(0, 0, 0, 0);
-		rmm.setAdditionalListener(this);
+		rmm.setDialogMessage("You really seem to like this app, "
+				+"since you have already used it %totalLaunchCount% times! "
+				+"It would be great if you took a moment to rate it.");
+		rmm.setDialogTitle("Rate this app");
+		rmm.setPositiveBtn("Yeeha!");
 		rmm.run();
 		
 	}
