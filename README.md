@@ -2,17 +2,14 @@ RateMeMaybe
 ===========
 - Asks the user if (s)he wants to open the Play Store to rate your application when certain requirements are met (see below). This can and should be configured to be very cautious. **Don't annoy your users!**
 - Dialog icon, title, message and so on can be **easily customized**
-- The sample Activity uses SherlockFragmentActivity (from [ActionBarSherlock]), but you can use a normal FragmentActivity if you do not use ABS. If you also do not use the android support library, you can change ```mActivity.getSupportFragmentManager()``` to ```mActivity.getFragmentManager()```
-- Code is heavily based on [AppRate] by Timothee Jeannin
+- The sample Activity uses SherlockFragmentActivity (from [ActionBarSherlock](http://actionbarsherlock.com)), but you can use a normal FragmentActivity if you do not use ABS. If you also do not use the android support library, you can change `mActivity.getSupportFragmentManager()` to `mActivity.getFragmentManager()`
+- Code is heavily based on [AppRate](https://github.com/TimotheeJeannin/AppRate) by Timothee Jeannin
 - License: MIT
-[ActionBarSherlock]: http://actionbarsherlock.com
-[AppRate]: https://github.com/TimotheeJeannin/AppRate
 
-To use it, you can simply copy [RateMeMaybe.java] and [RateMeMaybeFragment.java] into your project.
-[RateMeMaybe.java]: https://github.com/Kopfgeldjaeger/RateMeMaybe/blob/master/code/src/com/kopfgeldjaeger/ratememaybe/RateMeMaybe.java
-[RateMeMaybeFragment.java]: https://github.com/Kopfgeldjaeger/RateMeMaybe/blob/master/code/src/com/kopfgeldjaeger/ratememaybe/RateMeMaybeFragment.java
 
-Example usage in your (Sherlock)FragmentActivity:
+To use it, you can simply copy [RateMeMaybe.java](https://github.com/nspo/RateMeMaybe/blob/master/code/src/com/kopfgeldjaeger/ratememaybe/RateMeMaybe.java) and [RateMeMaybeFragment.java](https://github.com/nspo/RateMeMaybe/blob/master/code/src/com/kopfgeldjaeger/ratememaybe/RateMeMaybeFragment.java) into your project.
+
+Example usage in your `(Sherlock)FragmentActivity`:
 ```java
 RateMeMaybe rmm = new RateMeMaybe(this);
 rmm.setPromptMinimums(10, 14, 10, 30);
