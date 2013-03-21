@@ -25,7 +25,26 @@ rmm.run();
 
 Methods:
 ```java
-  /**
+	/**
+	 * Sets requirements for when to prompt the user.
+	 * 
+	 * @param minLaunchesUntilInitialPrompt
+	 *            Minimum of launches before the user is prompted for the first
+	 *            time. One call of .run() counts as launch.
+	 * @param minDaysUntilInitialPrompt
+	 *            Minimum of days before the user is prompted for the first
+	 *            time.
+	 * @param minLaunchesUntilNextPrompt
+	 *            Minimum of launches before the user is prompted for each next
+	 *            time. One call of .run() counts as launch.
+	 * @param minDaysUntilNextPrompt
+	 *            Minimum of days before the user is prompted for each next
+	 *            time.
+	 */
+	public void setPromptMinimums(int minLaunchesUntilInitialPrompt,
+			int minDaysUntilInitialPrompt, int minLaunchesUntilNextPrompt,
+			int minDaysUntilNextPrompt)
+	/**
 	 * Sets the title of the dialog shown to the user
 	 * @param dialogTitle
 	 */
@@ -66,26 +85,6 @@ Methods:
 	 *            Drawable id of custom icon
 	 */
 	public void setIcon(int customIcon)
-
-	/**
-	 * Sets requirements for when to prompt the user.
-	 * 
-	 * @param minLaunchesUntilInitialPrompt
-	 *            Minimum of launches before the user is prompted for the first
-	 *            time. One call of .run() counts as launch.
-	 * @param minDaysUntilInitialPrompt
-	 *            Minimum of days before the user is prompted for the first
-	 *            time.
-	 * @param minLaunchesUntilNextPrompt
-	 *            Minimum of launches before the user is prompted for each next
-	 *            time. One call of .run() counts as launch.
-	 * @param minDaysUntilNextPrompt
-	 *            Minimum of days before the user is prompted for each next
-	 *            time.
-	 */
-	public void setPromptMinimums(int minLaunchesUntilInitialPrompt,
-			int minDaysUntilInitialPrompt, int minLaunchesUntilNextPrompt,
-			int minDaysUntilNextPrompt)
 
 	/**
 	 * @param handleCancelAsNeutral
