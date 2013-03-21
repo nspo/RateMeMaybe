@@ -1,7 +1,7 @@
 RateMeMaybe
 ===========
-- Asks the user if (s)he wants to open the Play Store to rate your application when certain requirements are met (see below)
-- Dialog icon, title, message and so on can be easily customized
+- Asks the user if (s)he wants to open the Play Store to rate your application when certain requirements are met (see below). This can and should be configured to be very cautious. **Don't annoy your users!**
+- Dialog icon, title, message and so on can be **easily customized**
 - Code uses SherlockFragment and SherlockFragmentActivity (from [ActionBarSherlock]) to be compatible with devices that have a very old Android version. If you don't need to support those, you can easily change the code to use normal FragmentActivity and Fragment.
 - Code is heavily based on [AppRate] by Timothee Jeannin
 - License: MIT
