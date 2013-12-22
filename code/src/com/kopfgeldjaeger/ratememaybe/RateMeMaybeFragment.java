@@ -71,7 +71,9 @@ public class RateMeMaybeFragment extends DialogFragment implements
 
 	@Override
 	public void onCancel(DialogInterface dialog) {
-		mInterface._handleCancel();
+		if (mInterface != null) {
+			mInterface._handleCancel();
+		}
 	}
 
 	@Override
